@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spartan:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Frontend Mentor | Room homepage</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <a href="javascript:void(0);" class="menu-toggle" id="mobile-nav" onclick='showMenu()'>
+        <img src="images/icon-hamburger.svg" alt="" id="hamburger" />
+        <img src="images/icon-close.svg" alt="" id="close" />
+      </a>
+
+      <a href="">
+        <img class="logo" id="icon-logo" src="images/logo.svg" alt="" />
+      </a>
+      <div class="topnav" id="myTopnav">
+        <ul>
+          <li>
+            <a class="hover hover-effect" href=""
+              ><span class="hover hover-effect">Home</span></a
+            >
+          </li>
+          <li>
+            <a class="hover hover-effect" href=""
+              ><span class="hover hover-effect">Shop</span></a
+            >
+          </li>
+          <li>
+            <a class="hover hover-effect" href=""
+              ><span class="hover hover-effect">About</span></a
+            >
+          </li>
+          <li>
+            <a class="hover hover-effect" href=""
+              ><span class="hover hover-effect">Contact</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <section class="slide-container">
+      <div class="hero-slides">
+        <img
+          class="hero-items"
+          src="images/desktop-image-hero-1.jpg"
+          alt=""
+          width="100%"
+        />
+        <img
+          class="hero-items"
+          src="images/desktop-image-hero-2.jpg"
+          alt=""
+          width="100%/"
+        />
+        <img
+          class="hero-items"
+          src="images/desktop-image-hero-3.jpg"
+          alt=""
+          width="100%"
+        />
+      </div>
+
+      <div class="button">
+        <button id="prevBtn" onclick="plusSlides(-1)">
+          <img src="images/icon-angle-left.svg" alt="" />
+        </button>
+        <button id="nextBtn" onclick="plusSlides(1)">
+          <img src="images/icon-angle-right.svg" alt="" />
+        </button>
+      </div>
+
+      <div class="text-wrapper">
+        <div class="info-items">
+          <h1>Discover innovative ways to decorate</h1>
+          <p>
+            We provide unmatched quality, comfort, and style for property owners
+            across the country. Our experts combine form andnfunction in
+            bringing your vision to life. Create a room in your own style with
+            our collection and make your property a reflection of you and what
+            you love.
+          </p>
+
+          <div class="shop-now">
+            <a href="">Shop Now<img src="images/icon-arrow.svg" alt="" /></a>
+          </div>
+        </div>
+
+        <div class="info-items">
+          <h1>We are available all across the globe</h1>
+          <p>
+            With stores all over the world, it's easy for you to find furniture
+            for your home or place of business. Locally, we’re in most major
+            cities throughout the country. Find the branch nearest you using our
+            store locator. Any questions? Don't hesitate to contact us today.
+          </p>
+
+          <div class="shop-now">
+            <a href="">Shop Now<img src="images/icon-arrow.svg" alt="" /></a>
+          </div>
+        </div>
+
+        <div class="info-items">
+          <h1>Manufactured with the best materials</h1>
+          <p>
+            Our modern furniture store provide a high level of quality. Our
+            company has invested in advanced technology to ensure that every
+            product is made as perfect and as consistent as possible. With three
+            decades of experience in this industry, we understand what customers
+            want for their home and office.
+          </p>
+
+          <div class="shop-now">
+            <a href="">Shop Now<img src="images/icon-arrow.svg" alt="" /></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer-wrapper">
+      <div class="dark-image">
+        <img src="images/image-about-dark.jpg" alt="" />
+      </div>
+
+      <div class="about">
+        <h5>About our furniture</h5>
+        <p>
+          Our multifunctional collection blends design and function to suit your
+          individual taste. Make each room unique, or pick a cohesive theme that
+          best express your interests and what inspires you. Find the furniture
+          pieces you need, from traditional to contemporary styles or anything
+          in between. Product specialists are available to help you create your
+          dream space.
+        </p>
+      </div>
+
+      <div class="light-image">
+        <img src="images/image-about-light.jpg" alt="" />
+      </div>
+    </div>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Muring Niño</a>.
+    </div>
+
+    <script>
+      var slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName('hero-items');
+        var shop = document.getElementsByClassName('info-items');
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = 'none';
+        }
+        for (i = 0; i < shop.length; i++) {
+          shop[i].style.display = 'none';
+        }
+        slides[slideIndex - 1].style.display = 'block';
+        shop[slideIndex - 1].style.display = 'block';
+      }
+
+      var topnav = document.getElementById('myTopnav');
+      var closeMenu = document.getElementById('close');
+      var logo = document.getElementById('icon-logo');
+      var menu = document.getElementById('hamburger');
+      var header = document.getElementById('header');
+
+      function showMenu() {
+        
+        if (topnav.style.display === 'block') {
+          topnav.style.display = 'none';
+          logo.style.display = 'block';
+          header.style.background = 'none';
+          closeMenu.style.display = 'none';
+          menu.style.display = 'block';
+
+        } else {
+          topnav.style.display = 'block';
+          logo.style.display = 'none';
+          header.style.backgroundColor = "#fff";
+          closeMenu.style.display = 'block';
+          menu.style.display = 'none';
+        }
+        //maybe add an arrow function that will check if 
+      }
+
+      window.addEventListener('resize', resize);
+
+      function resize() {
+        if (window.innerWidth > 720) {
+          topnav.style.display = 'block';
+          header.style.background = 'none';
+          logo.style.display = 'block';
+          closeMenu.style.display = 'none';
+        }else{
+          topnav.style.display = 'none';
+        }
+      }
+
+      
+    </script>
+  </body>
+</html>
